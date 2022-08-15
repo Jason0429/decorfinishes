@@ -98,7 +98,7 @@ const Description = styled("div")`
 	}
 `;
 
-const BrownButton = styled("button")`
+const BrownButton = styled("a")`
 	font-family: ${montserrat};
 	margin-top: 100px;
 	padding: 20px 30px;
@@ -167,7 +167,9 @@ const Home: NextPage = () => {
 
 				{/* Contact Us Button */}
 				<Fade in timeout={4000}>
-					<BrownButton>Contact Us</BrownButton>
+					<BrownButton href='mailto:jasoncheung0429@gmail.com' target='_blank'>
+						Contact Us
+					</BrownButton>
 				</Fade>
 			</MainTextWrapper>
 		</Container>
