@@ -9,3 +9,10 @@ export const SCREEN_WIDTH_BREAKPOINTS_NUMS = {
 	TABLET: 900,
 	DESKTOP: 1512
 };
+
+export const RouteNames = {
+	home: "/",
+	about: "/about",
+	images: "/images",
+	contact: "/contact"
+};

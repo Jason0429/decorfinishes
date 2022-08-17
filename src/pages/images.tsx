@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 
-const Contact = () => {
+const Images = () => {
 	return (
 		<>
 			<Head>
@@ -10,9 +10,9 @@ const Contact = () => {
 				<link rel='icon' href='/dflogo.svg' />
 			</Head>
 			<Navbar />
-			<div>Contact Page</div>
+			<div>Images Page</div>
 		</>
 	);
 };
 
-export default Contact;
+export default Images;

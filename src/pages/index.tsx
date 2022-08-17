@@ -7,16 +7,12 @@ import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
 import Navbar from "../components/Navbar";
 import { black, brown, cormorant, montserrat, white } from "../theme";
 import { Fade } from "@mui/material";
-
-const Container = styled("div")`
-	min-height: 100vh;
-	width: 100%;
-`;
+import { PageContainer } from "../layouts/page_container";
 
 const MainDisplayImageWrapper = styled("div")`
+	position: absolute;
 	height: 100%;
 	width: 100%;
-	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -57,11 +53,6 @@ const MainTextWrapper = styled("div")`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 0 50px;
-
-	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.MOBILE}) {
-		padding: 0 30px;
-	}
 `;
 
 const Title = styled("div")`
@@ -122,7 +113,7 @@ const BrownButton = styled("a")`
 
 const Home: NextPage = () => {
 	return (
-		<Container>
+		<>
 			<Head>
 				<title>Decor Finishes</title>
 				<meta name='description' content='Decor Finishes' />
@@ -146,33 +137,34 @@ const Home: NextPage = () => {
 			{/* Navbar */}
 			<Navbar />
 
-			<MainTextWrapper>
-				{/* Title */}
-				<Fade in timeout={2500}>
-					<Title>
-						High Quality Work at
-						<br />
-						Competitive Prices
-					</Title>
-				</Fade>
+			{/* Page starts... */}
+			<PageContainer>
+				<MainTextWrapper>
+					{/* Title */}
+					<Fade in timeout={2500}>
+						<Title>
+							High Quality Work at
+							<br />
+							Competitive Prices
+						</Title>
+					</Fade>
 
-				{/* Description */}
-				<Fade in timeout={3000}>
-					<Description>
-						Since 1990, our mission has been to perform high quality work at competitive prices. We
-						strive to add value to your projects through our innovative ideas and cutting cost.
-						Customer satisfaction is always at the forefront with us.
-					</Description>
-				</Fade>
+					{/* Description */}
+					<Fade in timeout={3000}>
+						<Description>
+							Since 1990, our mission has been to perform high quality work at competitive prices.
+							We strive to add value to your projects through our innovative ideas and cutting cost.
+							Customer satisfaction is always at the forefront with us.
+						</Description>
+					</Fade>
 
-				{/* Contact Us Button */}
-				<Fade in timeout={4000}>
+					{/* Contact Us Button */}
 					<BrownButton href='mailto:jasoncheung0429@gmail.com' target='_blank'>
 						Contact Us
 					</BrownButton>
-				</Fade>
-			</MainTextWrapper>
-		</Container>
+				</MainTextWrapper>
+			</PageContainer>
+		</>
 	);
 };
 
