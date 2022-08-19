@@ -7,20 +7,19 @@ interface IMenu {
 	open: boolean;
 	anchorEl: HTMLElement | null;
 	onClose: () => void;
+	links: Object;
 }
 
-const Menu = ({ open, anchorEl, onClose }: IMenu) => {
+const Menu = ({ open, anchorEl, onClose, links }: IMenu) => {
 	return (
 		<MuiMenu open={open} anchorEl={anchorEl} onClose={onClose}>
-			<MenuItem>
-				<Link href={RouteNames.about}>About</Link>
-			</MenuItem>
-			<MenuItem>
-				<Link href={RouteNames.images}>Images</Link>
-			</MenuItem>
-			<MenuItem>
-				<Link href={RouteNames.contact}>Contact</Link>
-			</MenuItem>
+			{Object.entries(links).map(([name, route], index) => (
+				<MenuItem key={index}>
+					<Link key={index} href={route}>
+						{name}
+					</Link>
+				</MenuItem>
+			))}
 		</MuiMenu>
 	);
 };

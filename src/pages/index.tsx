@@ -6,8 +6,9 @@ import Image from "next/image";
 import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
 import Navbar from "../components/Navbar";
 import { black, brown, cormorant, montserrat, white } from "../theme";
-import { Fade } from "@mui/material";
 import { PageContainer } from "../layouts/page_container";
+import { handleContactUsButton } from "../controllers/home_page_controller";
+import Footer from "../components/Footer";
 
 const MainDisplayImageWrapper = styled("div")`
 	position: absolute;
@@ -89,7 +90,7 @@ const Description = styled("div")`
 	}
 `;
 
-const BrownButton = styled("a")`
+const BrownButton = styled("button")`
 	font-family: ${montserrat};
 	margin-top: 100px;
 	padding: 20px 30px;
@@ -141,29 +142,26 @@ const Home: NextPage = () => {
 			<PageContainer>
 				<MainTextWrapper>
 					{/* Title */}
-					<Fade in timeout={2500}>
-						<Title>
-							High Quality Work at
-							<br />
-							Competitive Prices
-						</Title>
-					</Fade>
+					<Title>
+						High Quality Work at
+						<br />
+						Competitive Prices
+					</Title>
 
 					{/* Description */}
-					<Fade in timeout={3000}>
-						<Description>
-							Since 1990, our mission has been to perform high quality work at competitive prices.
-							We strive to add value to your projects through our innovative ideas and cutting cost.
-							Customer satisfaction is always at the forefront with us.
-						</Description>
-					</Fade>
+					<Description>
+						Since 1990, our mission has been to perform high quality work at competitive prices. We
+						strive to add value to your projects through our innovative ideas and cutting cost.
+						Customer satisfaction is always at the forefront with us.
+					</Description>
 
 					{/* Contact Us Button */}
-					<BrownButton href='mailto:jasoncheung0429@gmail.com' target='_blank'>
-						Contact Us
-					</BrownButton>
+					<BrownButton onClick={() => handleContactUsButton()}>Contact Us</BrownButton>
 				</MainTextWrapper>
 			</PageContainer>
+
+			{/* Footer */}
+			<Footer />
 		</>
 	);
 };

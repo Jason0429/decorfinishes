@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import Image from "next/image";
 import logo from "../../assets/images/df-logo-black.svg";
 import { styled } from "@mui/system";
@@ -39,7 +39,7 @@ const NavLinksContainer = styled("div")`
 	display: flex;
 	flex-direction: row;
 	height: 100%;
-	width: 250px;
+	/* width: 250px; */
 	align-items: center;
 	justify-content: space-between;
 	/* margin-left: 20vw; */
@@ -53,6 +53,7 @@ const NavLinksContainer = styled("div")`
 const LinkWrapper = styled("div")`
 	position: relative;
 	padding-bottom: 5px;
+	margin: 0 15px;
 
 	::after {
 		content: "";
@@ -76,7 +77,7 @@ const Navbar = () => {
 	const openMenu = Boolean(menuAnchorEl);
 	const links = {
 		About: RouteNames.about,
-		Images: RouteNames.images,
+		// Images: RouteNames.images,
 		Contact: RouteNames.contact
 	};
 
@@ -91,15 +92,17 @@ const Navbar = () => {
 	return (
 		<Container>
 			<Link href={RouteNames.home}>
-				<Image
-					src={logo}
-					layout='fixed'
-					alt='Decor Finishes'
-					objectFit='contain'
-					objectPosition='left'
-					height={size.width <= SCREEN_WIDTH_BREAKPOINTS_NUMS.MOBILE ? "60%" : "100%"}
-					style={{ cursor: "pointer" }}
-				/>
+				<a>
+					<Image
+						src={logo}
+						layout='fixed'
+						alt='Decor Finishes'
+						objectFit='contain'
+						objectPosition='left'
+						height={size.width <= SCREEN_WIDTH_BREAKPOINTS_NUMS.MOBILE ? "60%" : "100%"}
+						style={{ cursor: "pointer" }}
+					/>
+				</a>
 			</Link>
 
 			{size.width <= SCREEN_WIDTH_BREAKPOINTS_NUMS.MOBILE ? (
@@ -107,7 +110,7 @@ const Navbar = () => {
 					<IconButton onClick={handleMenuClick}>
 						<MenuIcon fontSize='large' />
 					</IconButton>
-					<Menu open={openMenu} anchorEl={menuAnchorEl} onClose={handleCloseMenu} />
+					<Menu open={openMenu} anchorEl={menuAnchorEl} onClose={handleCloseMenu} links={links} />
 				</>
 			) : (
 				<NavLinksContainer>

@@ -5,24 +5,34 @@ import Navbar from "../components/Navbar";
 import { PageContainer } from "../layouts/page_container";
 import George from "../assets/images/george.jpeg";
 import Image from "next/image";
-import { Divider, Fade } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import { cormorant } from "../theme";
 import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
+import Footer from "../components/Footer";
 
-const Title = styled("h1")`
-	font-family: ${cormorant};
-	text-align: center;
-`;
+interface TitleProps {
+	center?: boolean;
+}
+
+interface DescriptionProps {
+	center?: boolean;
+}
+
+const Title = styled("h1")(({ center }: TitleProps) => ({
+	fontFamily: `${cormorant}`,
+	textAlign: center ? "center" : "left",
+	margin: "30px 0"
+}));
 
 const ProfilePictureWrapper = styled("div")`
 	position: relative;
 	height: 200px;
 	width: 200px;
 	border-radius: 100%;
-	margin: 30px 0;
+	margin: 30px;
 `;
 
-const AboutWrapper = styled("div")`
+const Row = styled("div")`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -34,16 +44,40 @@ const AboutWrapper = styled("div")`
 	}
 `;
 
-const Description = styled("p")`
-	font-family: ${cormorant};
-	word-wrap: normal;
-	font-size: 1.2rem;
-	width: 100%;
-	max-width: 900px;
-	line-height: 2rem;
+const Column = styled("div")`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
+const Description = styled("div")(({ center }: DescriptionProps) => ({
+	fontFamily: `${cormorant}`,
+	wordWrap: "normal",
+	fontSize: "1.2rem",
+	width: "100%",
+	maxWidth: "900px",
+	lineHeight: "2rem",
+	textAlign: center ? "center" : "left"
+}));
+
 const About: NextPage = () => {
+	const specializations = [
+		"Kitchen",
+		"Baths",
+		"Carpentry",
+		"Millwork",
+		"Painting",
+		"Skim Coating",
+		"Stain-Varnish",
+		"Wallpaper",
+		"Foux Finishes",
+		"Venetian Stucco",
+		"Marbleizing",
+		"Glazing",
+		"Gold Leaf",
+		"Metallics"
+	];
+
 	return (
 		<>
 			<Head>
@@ -57,32 +91,28 @@ const About: NextPage = () => {
 
 			<PageContainer>
 				{/* Title */}
-				<Title>About Us</Title>
+				<Title center={true}>About Our Company</Title>
 
-				<AboutWrapper>
+				<Row>
 					{/* Profile Picture */}
-					<Fade timeout={1500} in>
-						<ProfilePictureWrapper>
-							<Image
-								alt='George Kostalas'
-								src={George}
-								width='100%'
-								height='100%'
-								layout='responsive'
-								objectFit='cover'
-								quality={100}
-								style={{
-									position: "relative",
-									borderRadius: "100%"
-								}}
-							/>
-						</ProfilePictureWrapper>
-					</Fade>
-
-					{/* <Divider orientation='vertical' flexItem /> */}
+					<ProfilePictureWrapper>
+						<Image
+							priority={true}
+							alt='George Kostalas'
+							src={George}
+							width='100%'
+							height='100%'
+							layout='responsive'
+							objectFit='cover'
+							style={{
+								position: "relative",
+								borderRadius: "100%"
+							}}
+						/>
+					</ProfilePictureWrapper>
 
 					{/* Description */}
-					<Fade timeout={2000} in>
+					<Column>
 						<Description>
 							George Kostalas has been a resident of New York City for over 35 years and takes pride
 							and joy in living and working in the Tri state area. He takes honor in having Queens
@@ -90,10 +120,54 @@ const About: NextPage = () => {
 							too. If you are new to New York City and surrounding areas Chios Renovation is there
 							to help.
 						</Description>
-					</Fade>
-				</AboutWrapper>
+
+						<br />
+
+						<Description>
+							Chios Renovation Inc has been successfully servicing its client base since 1990. Our
+							success is attributed to our specialized and competitive approach. As we grow, we
+							continue to strive for client satisfaction through our high work ethics and always
+							going the extra mile. We service Commercial and Residential remodeling and
+							alterations. We hope to be of service to you and your company in a very specialized
+							way. Expert in Restoration providing the highest quality of craftsmanship. Emphasizing
+							in detail and with experience & knowledge in Decorative Foux Finishes. To give your
+							place a unique style. Innovative techniques working with Designers, Contractors, and
+							Architects.
+						</Description>
+
+						<br />
+						<br />
+						<br />
+					</Column>
+				</Row>
+
+				<Divider orientation='horizontal' flexItem />
+
+				<Column>
+					<Title center={true}>Our Specialties</Title>
+
+					<br />
+
+					<Description center={true}>
+						<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+							{specializations.map((s, idx) => (
+								<Grid item key={idx} xs={2} sm={4} md={4}>
+									{s}
+								</Grid>
+							))}
+						</Grid>
+					</Description>
+
+					<br />
+					<br />
+					<br />
+				</Column>
+
 				<Divider orientation='horizontal' flexItem />
 			</PageContainer>
+
+			{/* Footer */}
+			<Footer />
 		</>
 	);
 };

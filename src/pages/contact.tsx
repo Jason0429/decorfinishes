@@ -1,5 +1,7 @@
 import Head from "next/head";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { PageContainer } from "../layouts/page_container";
 
 const Contact = () => {
 	return (
@@ -9,8 +11,16 @@ const Contact = () => {
 				<meta name='description' content='Decor Finishes' />
 				<link rel='icon' href='/dflogo.svg' />
 			</Head>
+
+			{/* Navbar */}
 			<Navbar />
-			<div>Contact Page</div>
+
+			<PageContainer>
+				<div>Contact Page</div>
+			</PageContainer>
+
+			{/* Footer */}
+			<Footer />
 		</>
 	);
 };
