@@ -11,16 +11,14 @@ import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
 import Footer from "../components/Footer";
 
 interface TitleProps {
-	center?: boolean;
+	align?: "center" | "end" | "justify" | "left" | "right" | "start" | "inherit";
 }
 
-interface DescriptionProps {
-	center?: boolean;
-}
+interface DescriptionProps extends TitleProps {}
 
-const Title = styled("h1")(({ center }: TitleProps) => ({
+const Title = styled("h1")(({ align }: TitleProps) => ({
 	fontFamily: `${cormorant}`,
-	textAlign: center ? "center" : "left",
+	textAlign: align,
 	margin: "30px 0"
 }));
 
@@ -32,12 +30,11 @@ const ProfilePictureWrapper = styled("div")`
 	margin: 30px;
 `;
 
-const Row = styled("div")`
+const AboutPictureTextWrapper = styled("div")`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-evenly;
-	padding-top: 50px;
 
 	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.TABLET}) {
 		flex-direction: column;
@@ -50,14 +47,14 @@ const Column = styled("div")`
 	align-items: center;
 `;
 
-const Description = styled("div")(({ center }: DescriptionProps) => ({
+const Description = styled("div")(({ align }: DescriptionProps) => ({
 	fontFamily: `${cormorant}`,
 	wordWrap: "normal",
 	fontSize: "1.2rem",
 	width: "100%",
 	maxWidth: "900px",
 	lineHeight: "2rem",
-	textAlign: center ? "center" : "left"
+	textAlign: align
 }));
 
 const About: NextPage = () => {
@@ -91,9 +88,9 @@ const About: NextPage = () => {
 
 			<PageContainer>
 				{/* Title */}
-				<Title center={true}>About Our Company</Title>
+				<Title align='center'>About Our Company</Title>
 
-				<Row>
+				<AboutPictureTextWrapper>
 					{/* Profile Picture */}
 					<ProfilePictureWrapper>
 						<Image
@@ -139,16 +136,16 @@ const About: NextPage = () => {
 						<br />
 						<br />
 					</Column>
-				</Row>
+				</AboutPictureTextWrapper>
 
 				<Divider orientation='horizontal' flexItem />
 
 				<Column>
-					<Title center={true}>Our Specialties</Title>
+					<Title align='center'>Our Specialties</Title>
 
 					<br />
 
-					<Description center={true}>
+					<Description align='center'>
 						<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 							{specializations.map((s, idx) => (
 								<Grid item key={idx} xs={2} sm={4} md={4}>

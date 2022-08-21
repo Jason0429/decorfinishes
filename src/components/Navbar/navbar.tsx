@@ -33,16 +33,14 @@ const Container = styled("div")`
 const NavLinksContainer = styled("div")`
 	font-family: ${cormorant};
 	position: absolute;
-	/* border: thin solid red; */
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
 	flex-direction: row;
 	height: 100%;
-	/* width: 250px; */
+	gap: 20px;
 	align-items: center;
 	justify-content: space-between;
-	/* margin-left: 20vw; */
 	font-size: 1.2rem;
 
 	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.MOBILE}) {
@@ -53,7 +51,6 @@ const NavLinksContainer = styled("div")`
 const LinkWrapper = styled("div")`
 	position: relative;
 	padding-bottom: 5px;
-	margin: 0 15px;
 
 	::after {
 		content: "";

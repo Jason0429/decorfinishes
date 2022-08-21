@@ -28,14 +28,14 @@ const Trapezoid = styled("div")`
 	height: 0;
 	width: 55vw;
 	border-style: solid;
-	border-color: ${white} transparent transparent transparent;
+	border-color: white transparent transparent transparent;
 	border-width: 100vh 200px 0 0;
 
 	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.TABLET}) {
 		width: 100vw;
 		height: 50vh;
 		border: none;
-		background: ${white};
+		background: white;
 
 		::after {
 			content: "";
@@ -43,7 +43,7 @@ const Trapezoid = styled("div")`
 			height: 0;
 			position: absolute;
 			top: 100%;
-			border-top: 200px solid ${white};
+			border-top: 200px solid white;
 			border-right: 100vw solid transparent;
 		}
 	}

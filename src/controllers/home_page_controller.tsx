@@ -1,4 +1,5 @@
 import * as emailjs from "@emailjs/browser";
+import { Checker } from "../util/checker";
 
 export const handleContactUsButton = async () => {
 	const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
@@ -13,10 +14,12 @@ export const handleContactUsButton = async () => {
 	// emailjs.init(publicKey);
 
 	// const res = await emailjs.send(serviceId, templateId, {
-	// 	from_name: "Me",
+	// 	from_name: "Anonymous",
 	// 	to_name: "Jason",
-	// 	message: "Good morning haha"
+	// 	message: "Someone pressed the contact us button on the home page!"
 	// });
 
 	// console.log(res);
+
+	alert("Example email sent successfully");
 };
