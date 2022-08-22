@@ -4,6 +4,8 @@ import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
 export const PageContainer = styled("div")`
 	/* min-height: 100vh; */
 	position: relative;
+	display: flex;
+	flex-direction: column;
 	min-height: calc(100vh - 100px);
 	width: 100%;
 	padding: 0 50px;
