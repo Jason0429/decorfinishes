@@ -3,12 +3,12 @@ import type { NextPage } from "next";
 import mainDisplayImage from "../assets/images/home-display.png";
 import Head from "next/head";
 import Image from "next/image";
-import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
+import { RouteNames, SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
 import Navbar from "../components/Navbar";
 import { black, brown, cormorant, montserrat, white } from "../theme";
 import { PageContainer } from "../layouts/page_container";
-import { handleContactUsButton } from "../controllers/home_page_controller";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 const MainDisplayImageWrapper = styled("div")`
 	position: absolute;
@@ -90,7 +90,7 @@ const Description = styled("div")`
 	}
 `;
 
-const BrownButton = styled("button")`
+const BrownButton = styled("div")`
 	font-family: ${montserrat};
 	margin-top: 100px;
 	padding: 20px 30px;
@@ -156,7 +156,9 @@ const Home: NextPage = () => {
 					</Description>
 
 					{/* Contact Us Button */}
-					<BrownButton onClick={() => handleContactUsButton()}>Contact Us</BrownButton>
+					<BrownButton>
+						<Link href={RouteNames.contact}>Contact Us</Link>
+					</BrownButton>
 				</MainTextWrapper>
 			</PageContainer>
 
