@@ -1,52 +1,16 @@
-import { Paper, Stack, TextField } from "@mui/material";
-import { styled } from "@mui/system";
+import { Stack, TextField } from "@mui/material";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { PageContainer } from "../layouts/page_container";
-import { brown, cormorant, montserrat } from "../theme";
 import { SCREEN_WIDTH_BREAKPOINTS_NUMS } from "../util/constants";
 import "react-phone-number-input/style.css";
 import React, { useEffect, useState } from "react";
 import router from "next/router";
 import { isEmpty, validEmail, validPhoneNumber } from "../util/utils";
 import * as emailjs from "@emailjs/browser";
-
-interface TitleProps {
-	align?: "center" | "end" | "justify" | "left" | "right" | "start" | "inherit";
-}
-
-const Title = styled("h1")(({ align }: TitleProps) => ({
-	fontFamily: `${cormorant}`,
-	textAlign: align,
-	margin: "30px 0"
-}));
-
-const FormContainer = styled(Paper)`
-	padding: 20px;
-	min-width: 380px;
-	max-width: 800px;
-	width: 100%;
-`;
-
-const SubmitButton = styled("button")`
-	font-family: ${montserrat};
-	width: 150px;
-	height: 50px;
-	color: white;
-	border: none;
-	background: ${brown};
-	cursor: pointer;
-
-	&:active {
-		background: ${brown}99;
-	}
-`;
-
-export interface FormError {
-	isError: boolean;
-}
+import { FormContainer, SubmitButton, Title } from "../components/Contact/styles";
 
 export interface FormDetails {
 	firstName: string;

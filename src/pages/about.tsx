@@ -1,61 +1,18 @@
 import { NextPage } from "next";
-import { styled } from "@mui/system";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import { PageContainer } from "../layouts/page_container";
 import George from "../assets/images/george.jpeg";
 import Image from "next/image";
 import { Divider, Grid } from "@mui/material";
-import { cormorant } from "../theme";
-import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
 import Footer from "../components/Footer";
-
-interface TitleProps {
-	align?: "center" | "end" | "justify" | "left" | "right" | "start" | "inherit";
-}
-
-interface DescriptionProps extends TitleProps {}
-
-const Title = styled("h1")(({ align }: TitleProps) => ({
-	fontFamily: `${cormorant}`,
-	textAlign: align,
-	margin: "30px 0"
-}));
-
-const ProfilePictureWrapper = styled("div")`
-	position: relative;
-	height: 200px;
-	width: 200px;
-	border-radius: 100%;
-	margin: 30px;
-`;
-
-const AboutPictureTextWrapper = styled("div")`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-evenly;
-
-	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.TABLET}) {
-		flex-direction: column;
-	}
-`;
-
-const Column = styled("div")`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`;
-
-const Description = styled("div")(({ align }: DescriptionProps) => ({
-	fontFamily: `${cormorant}`,
-	wordWrap: "normal",
-	fontSize: "1.2rem",
-	width: "100%",
-	maxWidth: "900px",
-	lineHeight: "2rem",
-	textAlign: align
-}));
+import {
+	AboutPictureTextWrapper,
+	Column,
+	Description,
+	ProfilePictureWrapper,
+	Title
+} from "../components/About/styles";
 
 const About: NextPage = () => {
 	const specializations = [
