@@ -1,18 +1,9 @@
 import { styled } from "@mui/system";
+import { TitleProps } from "../../styles/global.style";
 import { cormorant } from "../../theme";
 import { SCREEN_WIDTH_BREAKPOINTS } from "../../util/constants";
 
-interface TitleProps {
-	align?: "center" | "end" | "justify" | "left" | "right" | "start" | "inherit";
-}
-
 interface DescriptionProps extends TitleProps {}
-
-export const Title = styled("h1")(({ align }: TitleProps) => ({
-	fontFamily: `${cormorant}`,
-	textAlign: align,
-	margin: "30px 0"
-}));
 
 export const ProfilePictureWrapper = styled("div")`
 	position: relative;

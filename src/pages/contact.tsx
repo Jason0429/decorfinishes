@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { PageContainer } from "../layouts/page_container";
 import { SCREEN_WIDTH_BREAKPOINTS_NUMS } from "../util/constants";
-import "react-phone-number-input/style.css";
 import React, { useEffect, useState } from "react";
 import router from "next/router";
 import { isEmpty, validEmail, validPhoneNumber } from "../util/utils";

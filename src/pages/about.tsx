@@ -10,9 +10,9 @@ import {
 	AboutPictureTextWrapper,
 	Column,
 	Description,
-	ProfilePictureWrapper,
-	Title
+	ProfilePictureWrapper
 } from "../components/About/styles";
+import { Title } from "../styles/global.style";
 
 const About: NextPage = () => {
 	const specializations = [
