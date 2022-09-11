@@ -33,3 +33,9 @@ export const SubmitButton = styled("button")`
 		background: ${brown}99;
 	}
 `;
+
+export const EmailUsDirectly = styled("a")`
+	font-style: ${montserrat};
+	text-decoration: underline;
+	cursor: pointer;
+`;

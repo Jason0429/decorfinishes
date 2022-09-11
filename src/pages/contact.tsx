@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import router from "next/router";
 import { isEmpty, validEmail, validPhoneNumber } from "../util/utils";
 import * as emailjs from "@emailjs/browser";
-import { FormContainer, SubmitButton, Title } from "../components/Contact/styles";
+import { EmailUsDirectly, FormContainer, SubmitButton, Title } from "../components/Contact/styles";
 
 export interface FormDetails {
 	firstName: string;
@@ -185,7 +185,6 @@ const Contact = () => {
 				}}
 			>
 				<Title align='center'>Contact Us</Title>
-
 				<FormContainer variant='outlined'>
 					<Stack direction='column' gap={inputGap}>
 						<Stack
@@ -266,6 +265,9 @@ const Contact = () => {
 						</Stack>
 					</Stack>
 				</FormContainer>
+				<br />
+				<br />
+				<EmailUsDirectly href='mailto:kostalasg@aol.com'>Email us directly!</EmailUsDirectly>
 			</PageContainer>
 
 			{/* Footer */}
