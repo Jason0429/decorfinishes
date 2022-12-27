@@ -2,7 +2,6 @@ import { styled } from "@mui/system";
 import { SCREEN_WIDTH_BREAKPOINTS } from "../util/constants";
 
 export const PageContainer = styled("div")`
-	/* min-height: 100vh; */
 	position: relative;
 	display: flex;
 	flex-direction: column;

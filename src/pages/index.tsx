@@ -7,20 +7,42 @@ import Navbar from "../components/Navbar";
 import { PageContainer } from "../layouts/page_container";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { BrownButton, Description, MainTextWrapper, Title } from "../components/Home/styles";
+import {
+	BrownButton,
+	Description,
+	ImageWrapper,
+	MainTextWrapper,
+	Title,
+	Trapezoid
+} from "../components/Home/styles";
 import { useWindowSize } from "../hooks/useWindowSize";
 import Spacer from "../components/Spacer";
 
-const getMainImageBackgroundStyle = (width: number) => {
-	if (width <= SCREEN_WIDTH_BREAKPOINTS_NUMS.DESKTOP) {
-		return {};
-	}
-
+const getFullBackgroundImageStyle = () => {
 	return {
 		backgroundImage: `url(${mainDisplayImage.src})`,
 		backgroundRepeat: "no-repeat",
 		backgroundPosition: "right"
 	};
+};
+
+const renderSecondaryImageDisplay = () => {
+	return (
+		<>
+			<Spacer height='40px' />
+			<ImageWrapper>
+				<Image
+					src={mainDisplayImage}
+					alt='Main Display Image'
+					layout='fill'
+					placeholder='blur'
+					quality={100}
+					objectFit='cover'
+					objectPosition='center'
+				/>
+			</ImageWrapper>
+		</>
+	);
 };
 
 const Home: NextPage = () => {
@@ -38,7 +60,12 @@ const Home: NextPage = () => {
 			<Navbar />
 
 			{/* Page starts... */}
-			<PageContainer style={getMainImageBackgroundStyle(width)}>
+			<PageContainer
+				style={width > SCREEN_WIDTH_BREAKPOINTS_NUMS.MOBILE ? getFullBackgroundImageStyle() : {}}
+			>
+				{/* Slanted trapezoid */}
+				<Trapezoid></Trapezoid>
+
 				<MainTextWrapper>
 					{/* Title */}
 					<Title>
@@ -46,6 +73,7 @@ const Home: NextPage = () => {
 						<br />
 						Competitive Prices
 					</Title>
+
 					{/* Description */}
 					<Description>
 						Since 1990, our mission has been to perform high quality work at competitive prices. We
@@ -61,18 +89,7 @@ const Home: NextPage = () => {
 					</Link>
 				</MainTextWrapper>
 
-				{width <= SCREEN_WIDTH_BREAKPOINTS_NUMS.DESKTOP && (
-					<>
-						<Spacer height='40px' />
-						<Image
-							src={mainDisplayImage}
-							alt='Main Display Image'
-							layout='intrinsic'
-							placeholder='blur'
-							quality={100}
-						/>
-					</>
-				)}
+				{width <= SCREEN_WIDTH_BREAKPOINTS_NUMS.MOBILE && renderSecondaryImageDisplay()}
 			</PageContainer>
 
 			{/* Footer */}

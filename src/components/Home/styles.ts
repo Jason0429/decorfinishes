@@ -1,9 +1,11 @@
 import { styled } from "@mui/system";
 import { black, brown, cormorant, montserrat, white } from "../../theme";
 import { SCREEN_WIDTH_BREAKPOINTS } from "../../util/constants";
+import Image from "next/image";
 
 export const Trapezoid = styled("div")`
 	position: absolute;
+	left: 0;
 	height: 0;
 	width: 55vw;
 	border-style: solid;
@@ -11,11 +13,13 @@ export const Trapezoid = styled("div")`
 	border-width: 100vh 200px 0 0;
 
 	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.TABLET}) {
+		// Rectangle
 		width: 100vw;
-		height: 50vh;
+		height: 45vh;
 		border: none;
 		background: white;
 
+		// Triangle at the bottom of the rectangle
 		::after {
 			content: "";
 			width: 0;
@@ -33,13 +37,13 @@ export const MainTextWrapper = styled("div")`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	font-family: ${cormorant};
+	color: ${black};
 `;
 
 export const Title = styled("div")`
 	display: flex;
 	align-items: center;
-	font-family: ${cormorant};
-	color: ${black};
 	margin: 100px 0;
 	font-size: 4rem;
 
@@ -54,10 +58,12 @@ export const Title = styled("div")`
 `;
 
 export const Description = styled("div")`
-	font-family: ${cormorant};
-	color: ${black};
-	width: 40vw;
 	font-size: 2rem;
+	max-width: 800px;
+
+	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.DESKTOP}) {
+		max-width: 500px;
+	}
 
 	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.TABLET}) {
 		font-size: 1.5rem;
@@ -88,4 +94,15 @@ export const BrownButton = styled("div")`
 	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.MOBILE}) {
 		font-size: 0.9rem;
 	}
+`;
+
+export const ImageWrapper = styled("div")`
+	position: relative;
+	height: 40vh;
+	width: 100%;
+	max-height: 300px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
