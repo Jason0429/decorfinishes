@@ -2,19 +2,6 @@ import { styled } from "@mui/system";
 import { black, brown, cormorant, montserrat, white } from "../../theme";
 import { SCREEN_WIDTH_BREAKPOINTS } from "../../util/constants";
 
-export const MainDisplayImageWrapper = styled("div")`
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-
-	@media screen and (max-width: ${SCREEN_WIDTH_BREAKPOINTS.TABLET}) {
-		flex-direction: column;
-	}
-`;
-
 export const Trapezoid = styled("div")`
 	position: absolute;
 	height: 0;
@@ -84,7 +71,6 @@ export const Description = styled("div")`
 
 export const BrownButton = styled("div")`
 	font-family: ${montserrat};
-	margin-top: 100px;
 	padding: 20px 30px;
 	border: none;
 	outline: none;

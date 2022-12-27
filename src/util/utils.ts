@@ -19,3 +19,5 @@ export const validEmail = (email: string): boolean => {
 export const validPhoneNumber = (phoneNumber: string) => {
 	return phoneNumber.length === 10;
 };
+
+export const withPx = (num: number) => `${num}px`;
