@@ -35,3 +35,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Deploy with env variables
 ```vercel --prod```
+
+## Emailing Service
+[EmailJS](https://dashboard.emailjs.com/admin)

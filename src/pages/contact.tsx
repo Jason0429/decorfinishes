@@ -11,6 +11,8 @@ import { isEmpty, validEmail, validPhoneNumber } from "../util/utils";
 import * as emailjs from "@emailjs/browser";
 import { EmailUsDirectly, FormContainer, SubmitButton, Title } from "../components/Contact/styles";
 
+const DIRECT_EMAIL = "officialdecorfinishes@gmail.com";
+
 export interface FormDetails {
 	firstName: string;
 	lastName: string;
@@ -267,7 +269,7 @@ const Contact = () => {
 				</FormContainer>
 				<br />
 				<br />
-				<EmailUsDirectly href='mailto:kostalasg@aol.com'>Email us directly!</EmailUsDirectly>
+				<EmailUsDirectly href={`mailto:${DIRECT_EMAIL}`}>Email us directly!</EmailUsDirectly>
 			</PageContainer>
 
 			{/* Footer */}
